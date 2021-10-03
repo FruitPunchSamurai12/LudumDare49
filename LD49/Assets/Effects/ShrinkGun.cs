@@ -12,24 +12,27 @@ public class ShrinkGun : MonoBehaviour
     [SerializeField] LayerMask _layerMask;
     [SerializeField] float _shrinkRate;
     [SerializeField] Material _shrinkMat;
-    bool _firing = false;
+    public bool Firing { get; private set; }
     Shrinkable _currentShrinkable = null;
-
+    PickUp _pickUp;
 
     private void Awake()
     {
         _cam = Camera.main;
         _lineRenderer = _rayObj.GetComponent<LineRenderer>();
+        _pickUp = GetComponent<PickUp>();
     }
 
     private void Update()
     {
+        if (_pickUp.Picking)
+            return;
         if(PlayerInput.Instance.Fire)
         {
             _rayObj.SetActive(true);
-            _firing = true;
+            Firing = true;
         }
-        if(_firing)
+        if(Firing)
         {
             Vector3 target = _cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -_depth));
             Vector3 direction = (target - _rayObj.transform.position).normalized;
@@ -62,7 +65,7 @@ public class ShrinkGun : MonoBehaviour
                     _currentShrinkable.StopShrink();
                     _currentShrinkable = null;
                 }
-                _firing = false;
+                Firing = false;
                 _rayObj.SetActive(false);
             }
         }
