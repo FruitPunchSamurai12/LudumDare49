@@ -406,6 +406,7 @@ MonoBehaviour:
     m_Bits: 119
   _shrinkRate: 0.005
   _shrinkMat: {fileID: 2100000, guid: 0ab46d3e2b8805348beb84cbfccf6e32, type: 2}
+  _shrinkGunAudioSource: {fileID: 0}
 --- !u!114 &4779330110534606161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,9 +423,10 @@ MonoBehaviour:
   _rayOrigin: {fileID: 0}
   _depth: -2
   _range: 2
+  _thickness: 2
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 631
   _throwForce: 50
 --- !u!1001 &744443107271019406
 PrefabInstance:

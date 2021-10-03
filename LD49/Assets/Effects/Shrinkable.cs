@@ -12,6 +12,7 @@ public class Shrinkable : MonoBehaviour
     [SerializeField] float _revertingDuration = 2f;
     [SerializeField] Vector3 _minimumScale = new Vector3(.3f, .3f, .3f);
     [SerializeField] Vector3 _maxScaleToBePickable = new Vector3(.4f, .4f, .4f);
+    [SerializeField] ShrinkAnimation _shrinkAnimation;
     bool _reverting = false;
     float _revertingTime = 0;
     MeshRenderer _rend;
@@ -21,10 +22,12 @@ public class Shrinkable : MonoBehaviour
 
     private void Awake()
     {
-        _expandGraphics.SetActive(false);
+        //_expandGraphics.SetActive(false);
         _rend = GetComponent<MeshRenderer>();
         _defaultMat = _rend.material;
         _pickable = GetComponent<Pickable>();
+        _shrinkAnimation.onShrinkComplete += HandleShrinkComplete;
+        _shrinkAnimation.onShrinkRevert += HandleShrinkRevert;
     }
 
     void Update()
@@ -47,6 +50,12 @@ public class Shrinkable : MonoBehaviour
         }
     }
 
+    public void Shrink(Vector3 hitPoint)
+    {
+        _shrinkAnimation.chargeHitPosition = hitPoint;
+        _shrinkAnimation.charging = true;
+    }
+
     public void Shrink(Material shrinkMat,float shrinkRate)
     {
         if (_reverting)
@@ -60,7 +69,20 @@ public class Shrinkable : MonoBehaviour
 
     public void StopShrink()
     {
-        _reverting = true;
-        _revertingTime = 0;
+        _shrinkAnimation.charging = false;
+        //_reverting = true;
+        //_revertingTime = 0;
+    }
+
+    void HandleShrinkComplete()
+    {
+        if (_pickable != null)
+            _pickable.SmallEnoughToPick();
+    }
+
+    void HandleShrinkRevert()
+    {
+        if (_pickable != null)
+            _pickable.TooBigToCarry();
     }
 }

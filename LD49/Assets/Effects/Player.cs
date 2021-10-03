@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
     bool _groundedPlayer = true;
     Vector3 velocity;
     bool leftStep = true;
+    AudioSource _stepsAudioSource;
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _characterGrounding = GetComponent<CharacterGrounding>();
+        _stepsAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,6 +56,8 @@ public class Player : MonoBehaviour
 
     void PlaySteps()
     {
+        if (_stepsAudioSource.isPlaying)
+            return;
         string sound = "Step";
         if (leftStep)
             sound += "Left";
@@ -61,7 +65,8 @@ public class Player : MonoBehaviour
             sound += "Right";
         sound += UnityEngine.Random.Range(1, 4).ToString();
         leftStep = !leftStep;
-        AudioManager.Instance.PlaySoundEffect(sound, transform.position);
+        _stepsAudioSource.clip = AudioManager.Instance.GetSoundEffect(sound);
+        _stepsAudioSource.Play();
     }
 
     private void Jump()
