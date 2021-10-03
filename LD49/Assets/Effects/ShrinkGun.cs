@@ -12,6 +12,7 @@ public class ShrinkGun : MonoBehaviour
     [SerializeField] LayerMask _layerMask;
     [SerializeField] float _shrinkRate;
     [SerializeField] Material _shrinkMat;
+    [SerializeField] AudioSource _shrinkGunAudioSource;
     public bool Firing { get; private set; }
     Shrinkable _currentShrinkable = null;
     PickUp _pickUp;
@@ -30,6 +31,8 @@ public class ShrinkGun : MonoBehaviour
         if(PlayerInput.Instance.Fire)
         {
             _rayObj.SetActive(true);
+            _shrinkGunAudioSource.time = 0;
+            _shrinkGunAudioSource.Play();
             Firing = true;
         }
         if(Firing)
@@ -40,7 +43,19 @@ public class ShrinkGun : MonoBehaviour
             {
                 _lineRenderer.SetPosition(0, Vector3.zero);
                 _lineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(info.point));
+                _lineRenderer.SetPosition(2, _rayObj.transform.InverseTransformPoint(info.point));
                 var shrinkable = info.collider.GetComponent<Shrinkable>();
+                if(info.collider.CompareTag("Mirror"))
+                {
+                    Vector3 reflect = Vector3.Reflect(direction, info.normal);
+                    if (Physics.Raycast(info.point, reflect, out RaycastHit info2, _range, _layerMask))
+                    {
+                        shrinkable = info2.collider.GetComponent<Shrinkable>();
+                        _lineRenderer.SetPosition(2, _rayObj.transform.InverseTransformPoint(info2.point));
+                    }
+                    else
+                        _lineRenderer.SetPosition(2, _rayObj.transform.InverseTransformPoint(info.point + reflect * _range));
+                }
                 if(shrinkable!=null)
                 {
                     if(_currentShrinkable!=null && _currentShrinkable !=shrinkable)
@@ -48,7 +63,8 @@ public class ShrinkGun : MonoBehaviour
                         _currentShrinkable.StopShrink();
                     }
                     _currentShrinkable = shrinkable;
-                    shrinkable.Shrink(_shrinkMat, _shrinkRate);
+                    //shrinkable.Shrink(_shrinkMat, _shrinkRate);
+                    shrinkable.Shrink(info.point);
                 }
             }
             else
@@ -65,8 +81,11 @@ public class ShrinkGun : MonoBehaviour
                     _currentShrinkable = null;
                 }
                 Firing = false;
+                _shrinkGunAudioSource.Stop();
                 _rayObj.SetActive(false);
             }
         }
     }
+
 }
+

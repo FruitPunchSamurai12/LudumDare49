@@ -13,11 +13,14 @@ public class Player : MonoBehaviour
     public float _jumpPower = 20;
     bool _groundedPlayer = true;
     Vector3 velocity;
+    bool leftStep = true;
+    AudioSource _stepsAudioSource;
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _characterGrounding = GetComponent<CharacterGrounding>();
+        _stepsAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,8 @@ public class Player : MonoBehaviour
         _characterDisplay.runDirection = new Vector2(moveInput.z, moveInput.x);
         _characterDisplay.running = moveInput != Vector3.zero;
         Vector3 move = transform.rotation * moveInput;
+        if (move != Vector3.zero && _groundedPlayer)
+            PlaySteps();
         _characterController.Move(move * Time.deltaTime * _speed);
 
 
@@ -49,10 +54,25 @@ public class Player : MonoBehaviour
         _characterDisplay.inair = !_groundedPlayer;
     }
 
-
+    void PlaySteps()
+    {
+        if (_stepsAudioSource.isPlaying)
+            return;
+        string sound = "Step";
+        if (leftStep)
+            sound += "Left";
+        else
+            sound += "Right";
+        sound += UnityEngine.Random.Range(1, 4).ToString();
+        leftStep = !leftStep;
+        _stepsAudioSource.clip = AudioManager.Instance.GetSoundEffect(sound);
+        _stepsAudioSource.Play();
+    }
 
     private void Jump()
     {
         velocity.y += Mathf.Sqrt(_jumpPower * -3.0f * Physics.gravity.y);
+        AudioManager.Instance.PlaySoundEffect("Jump", transform.position);
     }
+
 }

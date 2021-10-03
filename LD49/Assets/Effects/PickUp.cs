@@ -40,6 +40,7 @@ public class PickUp : MonoBehaviour
                 {
                     _currentPickable = pickable;
                     _currentPickable.Pick(_carryPoint);
+                    AudioManager.Instance.PlaySoundEffect("Pick", transform.position);
                     _currentPickable.onTooBigToCarry += Drop;
                     Picking = true;
                     break;
@@ -51,6 +52,7 @@ public class PickUp : MonoBehaviour
             if(_currentPickable!=null)
             {
                 _currentPickable.Throw(_cam.transform.forward*_throwForce);
+                AudioManager.Instance.PlaySoundEffect("Throw", transform.position);
             }
             _currentPickable.onTooBigToCarry -= Drop;
             _currentPickable = null;

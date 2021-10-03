@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ShrinkAnimation : MonoBehaviour {
 
@@ -82,6 +84,9 @@ public class ShrinkAnimation : MonoBehaviour {
     // Charge Indication
     private float extraScaleFactor = 1;
 
+    public event Action onShrinkComplete;
+    public event Action onShrinkRevert;
+
     /* Set the default values in the shaders */
     private void InitShaders() {
         // That way we can have multiple materials where we don't have to worry whether these are configured right...
@@ -122,12 +127,14 @@ public class ShrinkAnimation : MonoBehaviour {
         // Throw an event or something? Do this elsewhere?
         currentlyLarge = false;
         insideRenderer.transform.localScale = initialScale * shrinkScaleFactor;
+        onShrinkComplete?.Invoke();
     }
 
     private void SwitchToLarge() {
         // Throw an event or something? Do this elsewhere?
         currentlyLarge = true;
         insideRenderer.transform.localScale = initialScale;
+        onShrinkRevert?.Invoke();
     }
 
     private void Update() {
