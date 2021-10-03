@@ -3,10 +3,17 @@ using System;
 
 public class Pickable:MonoBehaviour
 {
+    [SerializeField] bool _alwaysPickable;
     public bool IsPickable { get; private set; }
     [SerializeField] Rigidbody _rb;
     [SerializeField] Transform _rootObject;
     public event Action onTooBigToCarry;
+
+    private void Awake()
+    {
+        if (_alwaysPickable)
+            IsPickable = true;
+    }
 
     public void Pick(Transform parent)
     {
@@ -38,6 +45,8 @@ public class Pickable:MonoBehaviour
 
     public void TooBigToCarry()
     {
+        if (_alwaysPickable)
+            return;
         IsPickable = false;
         onTooBigToCarry?.Invoke();
     }

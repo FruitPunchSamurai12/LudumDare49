@@ -50,7 +50,6 @@ public class ShrinkGun : MonoBehaviour
                     _currentShrinkable = shrinkable;
                     shrinkable.Shrink(_shrinkMat, _shrinkRate);
                 }
-                Debug.Log(info.collider.name);
             }
             else
             {
