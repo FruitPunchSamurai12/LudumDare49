@@ -21,5 +21,6 @@ public class PlayerInput : MonoBehaviour
 
     public Vector2 MousePosition => Input.mousePosition;
 
-
+    public bool Fire => Input.GetButtonDown("Fire1");
+    public bool StopFire => Input.GetButtonUp("Fire1");
 }
