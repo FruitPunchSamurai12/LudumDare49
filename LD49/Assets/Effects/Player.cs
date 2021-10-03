@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
 
         Vector3 moveInput = new Vector3(PlayerInput.Instance.Horizontal, 0, PlayerInput.Instance.Vertical);
-        _characterDisplay.runDirection = new Vector2(moveInput.x, moveInput.z);
+        _characterDisplay.runDirection = new Vector2(moveInput.z, moveInput.x);
         _characterDisplay.running = moveInput != Vector3.zero;
         Vector3 move = transform.rotation * moveInput;
         _characterController.Move(move * Time.deltaTime * _speed);
