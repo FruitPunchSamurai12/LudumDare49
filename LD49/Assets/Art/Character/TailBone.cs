@@ -5,6 +5,7 @@ public class TailBone : MonoBehaviour {
 
     // Transforms
     public Transform parentBone;
+    public Transform parentBone2;
     public Transform tailBoneOrigin;
     public Transform tailBoneEnd;
 
@@ -18,7 +19,7 @@ public class TailBone : MonoBehaviour {
     public float tailBoneAngularAcceleration = 2f;
     public float tailBoneAngularDamping = 0.1f;
     public float pointDistance = 2f;
-    public bool invert = false;
+    public float percentSecondParent = 0.5f;
     
     // State
     private Vector3 trackedEndPosition;
@@ -37,7 +38,7 @@ public class TailBone : MonoBehaviour {
         Quaternion tailBone1GlobalRotation = tailBoneOrigin.transform.rotation;
 
         extractedTailBoneLocalPosition = parentBone.InverseTransformPoint(tailBone1GlobalPosition);
-        extractedTailBoneLocalRotation = Quaternion.Inverse(parentBone.rotation)*tailBone1GlobalRotation;
+        extractedTailBoneLocalRotation = Quaternion.Inverse(Quaternion.Slerp(parentBone.rotation, parentBone2.rotation, percentSecondParent))*tailBone1GlobalRotation;
     }
 
     public void UpdateTailBone() {
@@ -48,7 +49,7 @@ public class TailBone : MonoBehaviour {
         Quaternion tailBone1GlobalRotation = Quaternion.LookRotation(trackedEndPosition - tailBoneOrigin.transform.position, new Vector3(0, 1, 0)) * Quaternion.Inverse(Quaternion.LookRotation(new Vector3(0, 1, 0), new Vector3(-1, 0, 0)));
 
         // Find the difference between target & source rotations
-        Quaternion targetLocation = parentBone.rotation*extractedTailBoneLocalRotation;
+        Quaternion targetLocation = Quaternion.Slerp(parentBone.rotation, parentBone2.rotation, percentSecondParent)*extractedTailBoneLocalRotation;
 
 
         // First find the angle around the Y axis

@@ -87,14 +87,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBone: {fileID: 1439654585775187132}
+  parentBone2: {fileID: 1439654585775187132}
   tailBoneOrigin: {fileID: 7714074052875152781}
   tailBoneEnd: {fileID: 5137787479528522990}
   extractedTailBoneLocalPosition: {x: -2.1827873e-11, y: 0.0002933572, z: 2.2919266e-10}
   extractedTailBoneLocalRotation: {x: 0.002095745, y: 0.00025502563, z: 0.3534379, w: 0.93545574}
   tailBoneAngularAcceleration: 2.2
-  tailBoneAngularDamping: 0.05
+  tailBoneAngularDamping: 0.1
   pointDistance: 2
-  invert: 0
+  percentSecondParent: 0.5
 --- !u!114 &1422895782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,14 +109,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBone: {fileID: 8666452734501964973}
+  parentBone2: {fileID: 5404402921421944103}
   tailBoneOrigin: {fileID: 1439654585775187132}
   tailBoneEnd: {fileID: 7714074052875152781}
   extractedTailBoneLocalPosition: {x: 0.0008782705, y: 0.0011917391, z: 0.000042842257}
-  extractedTailBoneLocalRotation: {x: 0.00000070750076, y: 0.000000042890218, z: -0.77503985, w: 0.6319125}
+  extractedTailBoneLocalRotation: {x: 0.00000075342035, y: 0.0000000054506555, z: -0.77503985, w: 0.6319125}
   tailBoneAngularAcceleration: 2
-  tailBoneAngularDamping: 0.1
+  tailBoneAngularDamping: 0.05
   pointDistance: 2
-  invert: 1
+  percentSecondParent: 0.5
 --- !u!1001 &659384093165449311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,6 +257,11 @@ GameObject:
 --- !u!4 &7519870872614662024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e69db1c275efbe94e900e93c2a7b919a, type: 3}
+  m_PrefabInstance: {fileID: 8057304539461421155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5404402921421944103 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6570470274858369724, guid: e69db1c275efbe94e900e93c2a7b919a, type: 3}
   m_PrefabInstance: {fileID: 8057304539461421155}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8666452734501964973 stripped
