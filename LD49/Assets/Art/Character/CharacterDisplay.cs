@@ -20,8 +20,8 @@ public class CharacterDisplay : MonoBehaviour
 
     public Transform upBone;
 
-    public Transform tailBone1;
-    public Transform tailBone2;
+    public TailBone bone1;
+    public TailBone bone2;
 
     // Update is called once per frame
     void LateUpdate()
@@ -33,5 +33,13 @@ public class CharacterDisplay : MonoBehaviour
 
         // Angle Look "up"
         upBone.localRotation = Quaternion.AngleAxis(angleLookUp, Vector3.back);
+
+        // Update the tail bone!
+        if(bone1 != null) {
+            bone1.UpdateTailBone();
+        }
+        if(bone2 != null) {
+            bone2.UpdateTailBone();
+        }
     }
 }

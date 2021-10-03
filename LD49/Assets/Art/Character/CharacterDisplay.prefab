@@ -29,6 +29,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8057304540261064229}
   - component: {fileID: 4051664828292283997}
+  - component: {fileID: 1422895781}
+  - component: {fileID: 1422895782}
   m_Layer: 0
   m_Name: CharacterDisplay
   m_TagString: Untagged
@@ -70,8 +72,50 @@ MonoBehaviour:
   angleLookUp: 0
   animator: {fileID: 8352247289928688912}
   upBone: {fileID: 4754926201622067922}
-  tailBone1: {fileID: 1439654585775187132}
-  tailBone2: {fileID: 7714074052875152781}
+  bone1: {fileID: 1422895782}
+  bone2: {fileID: 1422895781}
+--- !u!114 &1422895781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057304540261064228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c008a364613bfe498f4f0a999fb3866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBone: {fileID: 1439654585775187132}
+  tailBoneOrigin: {fileID: 7714074052875152781}
+  tailBoneEnd: {fileID: 5137787479528522990}
+  extractedTailBoneLocalPosition: {x: -2.1827873e-11, y: 0.0002933572, z: 2.2919266e-10}
+  extractedTailBoneLocalRotation: {x: 0.002095745, y: 0.00025502563, z: 0.3534379, w: 0.93545574}
+  tailBoneAngularAcceleration: 2.2
+  tailBoneAngularDamping: 0.05
+  pointDistance: 2
+  invert: 0
+--- !u!114 &1422895782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057304540261064228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c008a364613bfe498f4f0a999fb3866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBone: {fileID: 8666452734501964973}
+  tailBoneOrigin: {fileID: 1439654585775187132}
+  tailBoneEnd: {fileID: 7714074052875152781}
+  extractedTailBoneLocalPosition: {x: 0.0008782705, y: 0.0011917391, z: 0.000042842257}
+  extractedTailBoneLocalRotation: {x: 0.00000070750076, y: 0.000000042890218, z: -0.77503985, w: 0.6319125}
+  tailBoneAngularAcceleration: 2
+  tailBoneAngularDamping: 0.1
+  pointDistance: 2
+  invert: 1
 --- !u!1001 &659384093165449311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,6 +257,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e69db1c275efbe94e900e93c2a7b919a, type: 3}
   m_PrefabInstance: {fileID: 8057304539461421155}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &8666452734501964973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1699025919148967118, guid: e69db1c275efbe94e900e93c2a7b919a, type: 3}
+  m_PrefabInstance: {fileID: 8057304539461421155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4754926201622067922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3327509188063326897, guid: e69db1c275efbe94e900e93c2a7b919a, type: 3}
@@ -226,5 +275,10 @@ Transform:
 --- !u!4 &7714074052875152781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8873025091045956114, guid: e69db1c275efbe94e900e93c2a7b919a, type: 3}
+  m_PrefabInstance: {fileID: 8057304539461421155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5137787479528522990 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6297055134769558387, guid: e69db1c275efbe94e900e93c2a7b919a, type: 3}
   m_PrefabInstance: {fileID: 8057304539461421155}
   m_PrefabAsset: {fileID: 0}
