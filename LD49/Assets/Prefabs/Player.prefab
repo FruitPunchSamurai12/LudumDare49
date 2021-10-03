@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterDisplay: {fileID: 3634031881431725523}
-  _speed: 8
+  _speed: 4
   _jumpPower: 1
 --- !u!114 &744443107659219417
 MonoBehaviour:
