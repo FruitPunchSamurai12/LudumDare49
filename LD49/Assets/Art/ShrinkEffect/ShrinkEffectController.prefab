@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4065219139064105817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7172756224838432140}
+  - component: {fileID: 1287111306}
+  m_Layer: 0
+  m_Name: ShrinkEffectController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7172756224838432140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065219139064105817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287111306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065219139064105817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9183c973c3cca4c853515b1cecc61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charging: 0
+  chargeHitPosition: {x: -1.158, y: 0.419, z: 1.712}
+  currentlyLarge: 1
+  shrinkScaleFactor: 0.3
+  chargeLossSpeedFactor: 0.2
+  smoothenRandomRotationMin: 0.6
+  smoothenRandomRotationMax: 0.9
+  randomRotationYDegrees: 60
+  randomRotationXDegrees: 10
+  randomRotationZDegrees: 10
+  scaleForceFactor: 0.01
+  scaleForceDamp: 0.06
+  maxCharge: 2
+  chargeHitPositionTimeout: 0.5
+  restartBuildUpTimeout: 0.5
+  outsideScaleFactorSmoothTime: 1
+  outsideScaleFactorStandardSize: 0.99
+  outsideScaleFactorAddSize: 0.03
+  minChargeLimit: 0.8
+  minActualCharge: 0
+  amountIndicationScale: 0.1
+  amountIndicationScaleWhenSmall: 0.2
+  chargeWaveHeightSmallFactor: 0.3
+  chargeWaveScaleSmallFactor: 0.3
+  AmountDisplace: 0
+  ExtraGlitchScaleFactor: 0
+  GlitchScaleImpactFactor: 4
+  ChargePoint: {x: 0, y: 0, z: 0}
+  ChargePointSmooth: {x: 0, y: 0, z: 0}
+  ChargeContributionStart: 0
+  ChargeContributionEnd: 0
+  ChargeTransitionToSmoothHitPoint: 2
+  ChargeWaveScale: 0.1
+  ChargeWaveSpeed: -26
+  ChargeWaveHeight: 0.05
+  ChargeTransitionWaveSpeed: 2
+  ShrinkEndShift: 0
+  ChargeEffectBuildupSpeed: 200
+  ExtraHeightHitPointFalloffShape: 10
+  ExtraHeightHitPoint: 2
+  outsideRenderer: {fileID: 0}
+  insideRenderer: {fileID: 0}
