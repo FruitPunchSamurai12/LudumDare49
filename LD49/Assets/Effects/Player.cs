@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float _jumpPower = 20;
     bool _groundedPlayer = true;
     Vector3 velocity;
+    bool leftStep = true;
 
     private void Awake()
     {
@@ -34,6 +35,8 @@ public class Player : MonoBehaviour
         _characterDisplay.runDirection = new Vector2(moveInput.x, moveInput.z);
         _characterDisplay.running = moveInput != Vector3.zero;
         Vector3 move = transform.rotation * moveInput;
+        if (move != Vector3.zero && _groundedPlayer)
+            PlaySteps();
         _characterController.Move(move * Time.deltaTime * _speed);
 
 
@@ -49,10 +52,22 @@ public class Player : MonoBehaviour
         _characterDisplay.inair = !_groundedPlayer;
     }
 
-
+    void PlaySteps()
+    {
+        string sound = "Step";
+        if (leftStep)
+            sound += "Left";
+        else
+            sound += "Right";
+        sound += UnityEngine.Random.Range(1, 4).ToString();
+        leftStep = !leftStep;
+        AudioManager.Instance.PlaySoundEffect(sound, transform.position);
+    }
 
     private void Jump()
     {
         velocity.y += Mathf.Sqrt(_jumpPower * -3.0f * Physics.gravity.y);
+        AudioManager.Instance.PlaySoundEffect("Jump", transform.position);
     }
+
 }

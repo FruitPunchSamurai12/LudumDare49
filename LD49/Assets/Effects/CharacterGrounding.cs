@@ -53,6 +53,10 @@ public class CharacterGrounding : MonoBehaviour
             {
                 groundedObjectLastPosition = hitInfo.collider.transform.position;
             }
+            if(!IsGrounded)
+            {
+                AudioManager.Instance.PlaySoundEffect("Land", transform.position);
+            }
             IsGrounded = true;
             GroundedDirection = foot.forward;
             groundedObject = hitInfo.collider.transform;

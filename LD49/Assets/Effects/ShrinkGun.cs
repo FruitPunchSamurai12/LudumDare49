@@ -12,6 +12,7 @@ public class ShrinkGun : MonoBehaviour
     [SerializeField] LayerMask _layerMask;
     [SerializeField] float _shrinkRate;
     [SerializeField] Material _shrinkMat;
+    [SerializeField] AudioSource _shrinkGunAudioSource;
     public bool Firing { get; private set; }
     Shrinkable _currentShrinkable = null;
     PickUp _pickUp;
@@ -30,6 +31,8 @@ public class ShrinkGun : MonoBehaviour
         if(PlayerInput.Instance.Fire)
         {
             _rayObj.SetActive(true);
+            _shrinkGunAudioSource.time = 0;
+            _shrinkGunAudioSource.Play();
             Firing = true;
         }
         if(Firing)
@@ -65,8 +68,10 @@ public class ShrinkGun : MonoBehaviour
                     _currentShrinkable = null;
                 }
                 Firing = false;
+                _shrinkGunAudioSource.Stop();
                 _rayObj.SetActive(false);
             }
         }
     }
+
 }
