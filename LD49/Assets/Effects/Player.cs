@@ -6,6 +6,7 @@ using Cinemachine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] CharacterDisplay _characterDisplay;
     CharacterController _characterController;
     CharacterGrounding _characterGrounding;
     public float _speed;
@@ -30,6 +31,8 @@ public class Player : MonoBehaviour
 
 
         Vector3 moveInput = new Vector3(PlayerInput.Instance.Horizontal, 0, PlayerInput.Instance.Vertical);
+        _characterDisplay.runDirection = new Vector2(moveInput.x, moveInput.z);
+        _characterDisplay.running = moveInput != Vector3.zero;
         Vector3 move = transform.rotation * moveInput;
         _characterController.Move(move * Time.deltaTime * _speed);
 
@@ -42,6 +45,8 @@ public class Player : MonoBehaviour
 
         velocity.y += Physics.gravity.y * Time.deltaTime;
         _characterController.Move(velocity * Time.deltaTime);
+
+        _characterDisplay.inair = !_groundedPlayer;
     }
 
 
