@@ -29,8 +29,8 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-        Ray screenCenterRay = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
-        var hits = Physics.SphereCastAll(screenCenterRay, _thickness, _range, _layerMask);
+        Ray screenCenterRay = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, _depth));
+        var hits = Physics.OverlapSphere(transform.position + transform.forward*_range, _thickness,_layerMask);
 
         // Find things for hovering
         Pickable newHoverPickable = null;
@@ -39,13 +39,13 @@ public class PickUp : MonoBehaviour
         if(!Picking && !_shrinkGun.Firing) {
             foreach (var info in hits)
             {
-                var interactable = info.collider.GetComponent<Interactable>();
+                var interactable = info.GetComponent<Interactable>();
                 if(interactable!=null)
                 {
                     newHoverInteractible = interactable;
                     break;
                 }
-                var pickable = info.collider.GetComponent<Pickable>();
+                var pickable = info.GetComponent<Pickable>();
                 if (pickable != null && pickable.IsPickable)
                 {
                     newHoverPickable = pickable;

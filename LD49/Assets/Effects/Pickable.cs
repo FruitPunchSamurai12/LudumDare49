@@ -12,10 +12,14 @@ public class Pickable:MonoBehaviour
 
     public Renderer rendererForHighlight;
 
+    RigidbodyConstraints _defaultConstraints;
+
     private void Awake()
     {
         if (_alwaysPickable)
             IsPickable = true;
+
+        _defaultConstraints = _rb.constraints;
     }
 
     public void Pick(Transform parent)
@@ -24,15 +28,17 @@ public class Pickable:MonoBehaviour
         {
             _rootObject.parent = parent;
             _rootObject.localPosition = Vector3.zero;
-            _rb.isKinematic = true;
+            _rb.useGravity = false;
+            _rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
 
     public void LetDown()
     {
-        _rb.isKinematic = false;
+        _rb.useGravity = true;
         _rootObject.parent = null;
+        _rb.constraints = _defaultConstraints;
     }
 
     public void Throw(Vector3 force)

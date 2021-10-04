@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     CharacterController _characterController;
     CharacterGrounding _characterGrounding;
     [SerializeField] ShrinkAnimation _shrinkAnimation;
+    [SerializeField] Transform _carrier;
 
     [SerializeField] float _defaultHeight = 1;
     [SerializeField] float _defaultRadius = .25f;
@@ -21,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField] float _shrankCenterY = .15f;
     [SerializeField] float _shrankSpeed;
     [SerializeField] float _shrankJumpPower;
+
+    [SerializeField] float _defaultCarrierY = 0.85f;
+    [SerializeField] float _shrankCarrierY = 0.4f;
 
     public float _speed;
     public float _jumpPower = 20;
@@ -102,6 +106,7 @@ public class Player : MonoBehaviour
         _characterController.height = _shrankHeight;
         _speed = _shrankSpeed;
         _jumpPower = _shrankJumpPower;
+        _carrier.transform.localPosition = new Vector3(_carrier.transform.localPosition.x, _shrankCarrierY, _carrier.transform.localPosition.z);
     }
 
     void HandlePlayerUnshrink()
@@ -111,6 +116,7 @@ public class Player : MonoBehaviour
         _characterController.height = _defaultHeight;
         _speed = _defaultSpeed;
         _jumpPower = _defaultJumpPower;
+        _carrier.transform.localPosition = new Vector3(_carrier.transform.localPosition.x, _defaultCarrierY, _carrier.transform.localPosition.z);
     }
 
 }

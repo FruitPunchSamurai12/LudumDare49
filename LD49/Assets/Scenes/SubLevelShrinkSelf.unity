@@ -234,10 +234,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1250949042, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: _triggerBoxLayer.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
     - target: {fileID: 646304825581839578, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -282,45 +278,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1176819042839227654, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3581870506315055188, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
       propertyPath: m_Name
       value: LevelBase
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126162262498, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.44499993
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126162262498, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.633
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126162262498, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126184313048, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: _shrankCenterY
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126184313050, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 3649
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126385159736, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.44499993
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126385159736, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.633
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126385159736, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
