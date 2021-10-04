@@ -43,17 +43,17 @@ public class Shrinkable : MonoBehaviour
         _shrinkAnimation.LeftSmallSpace();
     }
 
-    public void Shrink(Vector3 hitPoint)
+    public virtual void Shrink(Vector3 hitPoint)
     {
         _shrinkAnimation.chargeHitPosition = hitPoint;
         _shrinkAnimation.charging = true;
     }
-    public void StopShrink()
+    public virtual void StopShrink()
     {
         _shrinkAnimation.charging = false;
     }
 
-    void HandleShrinkComplete()
+    protected virtual void HandleShrinkComplete()
     {
         _isSmall = true;
         if (_pickable != null)
