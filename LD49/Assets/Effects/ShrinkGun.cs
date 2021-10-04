@@ -6,7 +6,8 @@ public class ShrinkGun : MonoBehaviour
 {
     Camera _cam;
     [SerializeField] GameObject _rayObj;
-    LineRenderer _lineRenderer;
+    [SerializeField] LineRenderer _primaryLineRenderer;
+    [SerializeField] LineRenderer _secondaryLineRenderer;
     [SerializeField] float _depth = -100;
     [SerializeField] float _range = 5f;
     [SerializeField] LayerMask _layerMask;
@@ -20,7 +21,7 @@ public class ShrinkGun : MonoBehaviour
     private void Awake()
     {
         _cam = Camera.main;
-        _lineRenderer = _rayObj.GetComponent<LineRenderer>();
+        _secondaryLineRenderer.enabled = false;
         _pickUp = GetComponent<PickUp>();
     }
 
@@ -41,21 +42,24 @@ public class ShrinkGun : MonoBehaviour
             Vector3 direction = (target - _rayObj.transform.position).normalized;
             if(Physics.Raycast(_rayObj.transform.position,direction,out RaycastHit info, _range,_layerMask))
             {
-                _lineRenderer.SetPosition(0, Vector3.zero);
-                _lineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(info.point));
-                _lineRenderer.SetPosition(2, _rayObj.transform.InverseTransformPoint(info.point));
+                _primaryLineRenderer.SetPosition(0, Vector3.zero);
+                _primaryLineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(info.point));
                 var shrinkable = info.collider.GetComponent<Shrinkable>();
-                if(info.collider.CompareTag("Mirror"))
+                if (info.collider.CompareTag("Mirror"))
                 {
                     Vector3 reflect = Vector3.Reflect(direction, info.normal);
+                    _secondaryLineRenderer.enabled = true;
+                    _secondaryLineRenderer.SetPosition(0, _rayObj.transform.InverseTransformPoint(info.point));
                     if (Physics.Raycast(info.point, reflect, out RaycastHit info2, _range, _layerMask))
                     {
                         shrinkable = info2.collider.GetComponent<Shrinkable>();
-                        _lineRenderer.SetPosition(2, _rayObj.transform.InverseTransformPoint(info2.point));
+                        _secondaryLineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(info2.point));
                     }
                     else
-                        _lineRenderer.SetPosition(2, _rayObj.transform.InverseTransformPoint(info.point + reflect * _range));
+                        _secondaryLineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(info.point + reflect * _range));
                 }
+                else
+                    _secondaryLineRenderer.enabled = false;
                 if(shrinkable!=null)
                 {
                     if(_currentShrinkable!=null && _currentShrinkable !=shrinkable)
@@ -69,8 +73,9 @@ public class ShrinkGun : MonoBehaviour
             }
             else
             {
-                _lineRenderer.SetPosition(0, Vector3.zero);
-                _lineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(_rayObj.transform.position +direction *_range));
+                _primaryLineRenderer.SetPosition(0, Vector3.zero);
+                _primaryLineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(_rayObj.transform.position +direction *_range));
+                _secondaryLineRenderer.enabled = false;
             }
             
             if (PlayerInput.Instance.StopFire)
