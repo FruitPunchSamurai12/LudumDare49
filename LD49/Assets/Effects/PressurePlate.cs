@@ -21,7 +21,7 @@ public class PressurePlate : MonoBehaviour
         Pickable p = other.GetComponent<Pickable>();
         if(p!=null)
         {
-            if (p.IsPickable) return;
+            if (p.IsPickable && !p._alwaysWorkOnPressurePlates) return;
         }
         Press();
     }
@@ -31,7 +31,7 @@ public class PressurePlate : MonoBehaviour
         Pickable p = other.GetComponent<Pickable>();
         if (p != null)
         {
-            if (p.IsPickable)
+            if (p.IsPickable && !p._alwaysWorkOnPressurePlates)
             {
                 UnPress();
                 return;
@@ -45,7 +45,7 @@ public class PressurePlate : MonoBehaviour
         Pickable p = other.GetComponent<Pickable>();
         if (p != null)
         {
-            if (p.IsPickable) return;
+            if (p.IsPickable && !p._alwaysWorkOnPressurePlates) return;
         }
         UnPress();
     }

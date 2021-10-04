@@ -17,6 +17,7 @@ public class ShrinkGun : MonoBehaviour
     public bool Firing { get; private set; }
     Shrinkable _currentShrinkable = null;
     PickUp _pickUp;
+    bool _shrinkGunUnlocked = false;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class ShrinkGun : MonoBehaviour
 
     private void Update()
     {
-        if (_pickUp.Picking)
+        if (_pickUp.Picking || !_shrinkGunUnlocked)
             return;
         if(PlayerInput.Instance.Fire)
         {
@@ -92,5 +93,6 @@ public class ShrinkGun : MonoBehaviour
         }
     }
 
+    public void Unlock() => _shrinkGunUnlocked = true;
 }
 
