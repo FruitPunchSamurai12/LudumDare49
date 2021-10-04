@@ -49,7 +49,7 @@ public class TailBone : MonoBehaviour {
         Quaternion tailBone1GlobalRotation = Quaternion.LookRotation(trackedEndPosition - tailBoneOrigin.transform.position, new Vector3(0, 1, 0)) * Quaternion.Inverse(Quaternion.LookRotation(new Vector3(0, 1, 0), new Vector3(-1, 0, 0)));
 
         // Find the difference between target & source rotations
-        Quaternion targetLocation = Quaternion.Slerp(parentBone.rotation, parentBone2.rotation, percentSecondParent)*extractedTailBoneLocalRotation;
+        Quaternion targetLocation = Quaternion.SlerpUnclamped(parentBone.rotation, parentBone2.rotation, percentSecondParent)*extractedTailBoneLocalRotation;
 
 
         // First find the angle around the Y axis

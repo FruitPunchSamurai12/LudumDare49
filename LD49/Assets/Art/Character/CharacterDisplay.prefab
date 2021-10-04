@@ -116,8 +116,8 @@ MonoBehaviour:
   extractedTailBoneLocalRotation: {x: 0.00000075342035, y: 0.0000000054506555, z: -0.77503985, w: 0.6319125}
   tailBoneAngularAcceleration: 2
   tailBoneAngularDamping: 0.05
-  pointDistance: 2
-  percentSecondParent: 0.5
+  pointDistance: 1
+  percentSecondParent: 0
 --- !u!1001 &659384093165449311
 PrefabInstance:
   m_ObjectHideFlags: 0
