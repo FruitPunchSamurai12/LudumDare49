@@ -18,6 +18,9 @@ public class PickUp : MonoBehaviour
 
     Pickable _currentPickable = null;
 
+    Pickable _hoverPickable = null;
+    Interactable _hoverInteractible = null;
+
     private void Awake()
     {
         _cam = Camera.main;
@@ -26,31 +29,69 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-        if (_shrinkGun.Firing)
-            return;
-        if(!Picking && PlayerInput.Instance.Pick)
-        {
-            Vector3 target = _cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -_depth));
-            Vector3 direction = (target - _rayOrigin.position).normalized;
-            var hits = Physics.SphereCastAll(_rayOrigin.position, _thickness, direction, _range, _layerMask);
+        Ray screenCenterRay = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
+        var hits = Physics.SphereCastAll(screenCenterRay, _thickness, _range, _layerMask);
+
+        // Find things for hovering
+        Pickable newHoverPickable = null;
+        Interactable newHoverInteractible = null;
+
+        if(!Picking && !_shrinkGun.Firing) {
             foreach (var info in hits)
             {
                 var interactable = info.collider.GetComponent<Interactable>();
                 if(interactable!=null)
                 {
-                    interactable.Interact();
-                    return;
+                    newHoverInteractible = interactable;
+                    break;
                 }
                 var pickable = info.collider.GetComponent<Pickable>();
                 if (pickable != null && pickable.IsPickable)
                 {
-                    _currentPickable = pickable;
-                    _currentPickable.Pick(_carryPoint);
-                    AudioManager.Instance.PlaySoundEffect("Pick", transform.position);
-                    _currentPickable.onTooBigToCarry += Drop;
-                    Picking = true;
+                    newHoverPickable = pickable;
                     break;
                 }
+            }
+        }
+
+        // Update hover indication
+        if(newHoverInteractible != _hoverInteractible) {
+            if(_hoverInteractible != null) {
+                _hoverInteractible.Highlight(false);
+            }
+            if(newHoverInteractible!= null) {
+                newHoverInteractible.Highlight(true);
+            }
+            _hoverInteractible = newHoverInteractible;
+        }
+        if(newHoverPickable != _hoverPickable) {
+            if(_hoverPickable != null) {
+                _hoverPickable.Highlight(false);
+            }
+            if(newHoverPickable != null) {
+                newHoverPickable.Highlight(true);
+            }
+            _hoverPickable = newHoverPickable;
+        }
+        
+
+        //
+        // Actual picking
+        //
+        if (_shrinkGun.Firing)
+            return;
+        if(!Picking && PlayerInput.Instance.Pick)
+        {
+            if(newHoverInteractible != null) {
+                newHoverInteractible.Interact();
+            }
+            if (newHoverPickable != null)
+            {
+                _currentPickable = newHoverPickable;
+                _currentPickable.Pick(_carryPoint);
+                AudioManager.Instance.PlaySoundEffect("Pick", transform.position);
+                _currentPickable.onTooBigToCarry += Drop;
+                Picking = true;
             }
         }
         if(Picking && PlayerInput.Instance.LetDown)

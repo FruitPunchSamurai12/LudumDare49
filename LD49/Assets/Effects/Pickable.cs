@@ -10,6 +10,8 @@ public class Pickable:MonoBehaviour
     [SerializeField] Transform _rootObject;
     public event Action onTooBigToCarry;
 
+    public Renderer rendererForHighlight;
+
     private void Awake()
     {
         if (_alwaysPickable)
@@ -52,4 +54,10 @@ public class Pickable:MonoBehaviour
         onTooBigToCarry?.Invoke();
     }
 
+
+    public void Highlight(bool highlight) {
+        if(rendererForHighlight != null) {
+            rendererForHighlight.material.SetFloat("Highlight", highlight?1:0);
+        }
+    }
 }

@@ -95,6 +95,7 @@ MonoBehaviour:
   _alwaysWorkOnPressurePlates: 0
   _rb: {fileID: 5723644345671636586}
   _rootObject: {fileID: 757129035315088317}
+  rendererForHighlight: {fileID: 8720162819922610532}
 --- !u!114 &6087508961745847942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +128,34 @@ PrefabInstance:
       propertyPath: outsideRenderer
       value: 
       objectReference: {fileID: 5089842355950965610}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: ExtraHeightHitPoint
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: chargeHitPosition.x
+      value: -1.997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: chargeHitPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: chargeHitPosition.z
+      value: -4.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: randomRotationXDegrees
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: randomRotationYDegrees
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: randomRotationZDegrees
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4065219139064105817, guid: 804988637563e544887e594ff1ce8536, type: 3}
       propertyPath: m_Name
       value: ShrinkEffectController
@@ -206,15 +235,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 21.438
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 21.438
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 21.438
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,15 +318,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 21.438
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 21.438
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 21.438
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f719b185ea1a2184d8fdadd2c909477b, type: 3}
       propertyPath: m_LocalPosition.x

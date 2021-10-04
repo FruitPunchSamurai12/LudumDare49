@@ -95,6 +95,7 @@ MonoBehaviour:
   _alwaysWorkOnPressurePlates: 1
   _rb: {fileID: 7822325095421244550}
   _rootObject: {fileID: 4082105085622805733}
+  rendererForHighlight: {fileID: 6842374304221736358}
 --- !u!114 &5829422096347500905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +128,22 @@ PrefabInstance:
       propertyPath: outsideRenderer
       value: 
       objectReference: {fileID: 5086444038530508908}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: ExtraHeightHitPoint
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: chargeHitPosition.x
+      value: -1.997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: chargeHitPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: chargeHitPosition.z
+      value: -4.016
+      objectReference: {fileID: 0}
     - target: {fileID: 4065219139064105817, guid: 804988637563e544887e594ff1ce8536, type: 3}
       propertyPath: m_Name
       value: ShrinkEffectController
