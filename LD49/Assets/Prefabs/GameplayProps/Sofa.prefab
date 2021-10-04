@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &7347244678294705668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3346934122654720097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5158549, y: 0.51585484, z: 0.60660166}
+  m_Center: {x: 0.006786824, y: -0.004620552, z: 0.22171073}
 --- !u!114 &4864761816026700803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,6 +26,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shrinkAnimation: {fileID: 1259972777912020494}
+  _alwaysWorkOnPressurePlates: 0
 --- !u!114 &6181954124814931388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,19 +43,6 @@ MonoBehaviour:
   _alwaysWorkOnPressurePlates: 1
   _rb: {fileID: 4738209859500521050}
   _rootObject: {fileID: 3392115952584355059}
---- !u!65 &7347244678294705668
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3346934122654720097}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5158549, y: 0.51585484, z: 0.60660166}
-  m_Center: {x: 0.006786824, y: -0.004620552, z: 0.22171073}
 --- !u!1 &6992687156745784732
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3392115952584355059}
   - component: {fileID: 4738209859500521050}
+  - component: {fileID: 6713139202056670153}
   m_Layer: 0
   m_Name: Sofa
   m_TagString: Untagged
@@ -92,6 +94,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6713139202056670153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992687156745784732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fc64c09c17c7f4cbed1feec6dab9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - Crash
 --- !u!1001 &1259972776646438020
 PrefabInstance:
   m_ObjectHideFlags: 0

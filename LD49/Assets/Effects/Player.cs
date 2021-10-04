@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
     [SerializeField] float _defaultHeight = 1;
     [SerializeField] float _defaultRadius = .25f;
     [SerializeField] float _defaultCenterY = .5f;
+    [SerializeField] float _defaultSpeed;
+    [SerializeField] float _defaultJumpPower;
     [SerializeField] float _shrankHeight = 1f/3f;
     [SerializeField] float _shrankRadius = .25f/3f;
     [SerializeField] float _shrankCenterY = .15f;
-
-
+    [SerializeField] float _shrankSpeed;
+    [SerializeField] float _shrankJumpPower;
 
     public float _speed;
     public float _jumpPower = 20;
@@ -32,8 +34,12 @@ public class Player : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _characterGrounding = GetComponent<CharacterGrounding>();
         _stepsAudioSource = GetComponent<AudioSource>();
-        //_shrinkAnimation.onShrinkComplete += HandlePlayerShrink;
-        //_shrinkAnimation.onShrinkRevert += HandlePlayerUnshrink;
+        _shrinkAnimation.onShrinkComplete += HandlePlayerShrink;
+        _shrinkAnimation.onShrinkRevert += HandlePlayerUnshrink;
+        _speed = _defaultSpeed;
+        _jumpPower = _defaultJumpPower;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -93,6 +99,8 @@ public class Player : MonoBehaviour
         _characterController.center = new Vector3(0, _shrankCenterY, 0);
         _characterController.radius = _shrankRadius;
         _characterController.height = _shrankHeight;
+        _speed = _shrankSpeed;
+        _jumpPower = _shrankJumpPower;
     }
 
     void HandlePlayerUnshrink()
@@ -100,6 +108,8 @@ public class Player : MonoBehaviour
         _characterController.center = new Vector3(0, _defaultCenterY, 0);
         _characterController.radius = _defaultRadius;
         _characterController.height = _defaultHeight;
+        _speed = _defaultSpeed;
+        _jumpPower = _defaultJumpPower;
     }
 
 }

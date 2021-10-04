@@ -89,6 +89,8 @@ public class ShrinkAnimation : MonoBehaviour {
     public event Action onShrinkComplete;
     public event Action onShrinkRevert;
 
+    bool inSmallSpace = false;
+
     /* Set the default values in the shaders */
     private void InitShader(Renderer r) {
         // That way we can have multiple materials where we don't have to worry whether these are configured right...
@@ -167,7 +169,7 @@ public class ShrinkAnimation : MonoBehaviour {
             charge-=Time.deltaTime * chargeLossSpeedFactor;
             if(charge < 0) {
                 charge = 0;
-                if(!currentlyLarge) {
+                if(!currentlyLarge && !inSmallSpace) {
                     SwitchToLarge();
                 }
             }
@@ -293,5 +295,15 @@ public class ShrinkAnimation : MonoBehaviour {
                 r.material.SetFloat("_ExtraGlitchScaleFactor", shrinkGlitchFactor);
             }
         }
+    }
+
+    public void InSmallSpace()
+    {
+        inSmallSpace = true;
+    }
+
+    public void LeftSmallSpace()
+    {
+        inSmallSpace = false;
     }
 }

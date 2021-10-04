@@ -1167,25 +1167,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3040310007143771217, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: _throwForce
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3581870506315055188, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
       propertyPath: m_Name
       value: LevelBase
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126184313047, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_Height
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076850126184313047, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7521801643997206955, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
-      propertyPath: _layerMask.m_Bits
-      value: 759
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}

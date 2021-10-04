@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4082105085622805733}
   - component: {fileID: 7822325095421244550}
+  - component: {fileID: 1561730088731687888}
   m_Layer: 0
   m_Name: RoundTable
   m_TagString: Untagged
@@ -50,6 +51,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1561730088731687888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160342914749033504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fc64c09c17c7f4cbed1feec6dab9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - CrashWooden1
+  - CrashWooden2
+--- !u!65 &2852776330938769875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040657582676118643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.46034384, y: 0.4935419, z: 0.5703159}
+  m_Center: {x: 0.021204472, y: -0.0006736815, z: 0.28513414}
 --- !u!114 &1405040599823281237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,19 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shrinkAnimation: {fileID: 2063823701130974069}
---- !u!65 &2852776330938769875
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5040657582676118643}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.46034384, y: 0.4935419, z: 0.5703159}
-  m_Center: {x: 0.021204472, y: -0.0006736815, z: 0.28513414}
+  _alwaysWorkOnPressurePlates: 0
 --- !u!1001 &2063823702126383615
 PrefabInstance:
   m_ObjectHideFlags: 0
