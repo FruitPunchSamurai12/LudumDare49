@@ -18,20 +18,20 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Pickable p = other.GetComponent<Pickable>();
+        Shrinkable p = other.GetComponent<Shrinkable>();
         if(p!=null)
         {
-            if (p.IsPickable && !p._alwaysWorkOnPressurePlates) return;
+            if (!p.ApplyPressure()) return;
         }
         Press();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        Pickable p = other.GetComponent<Pickable>();
+        Shrinkable p = other.GetComponent<Shrinkable>();
         if (p != null)
         {
-            if (p.IsPickable && !p._alwaysWorkOnPressurePlates)
+            if (!p.ApplyPressure())
             {
                 UnPress();
                 return;
@@ -42,10 +42,10 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Pickable p = other.GetComponent<Pickable>();
+        Shrinkable p = other.GetComponent<Shrinkable>();
         if (p != null)
         {
-            if (p.IsPickable && !p._alwaysWorkOnPressurePlates) return;
+            if (!p.ApplyPressure()) return;
         }
         UnPress();
     }

@@ -17,7 +17,7 @@ public class ShrinkGun : MonoBehaviour
     public bool Firing { get; private set; }
     Shrinkable _currentShrinkable = null;
     PickUp _pickUp;
-    bool _shrinkGunUnlocked = false;
+    public bool _shrinkGunUnlocked = false;
 
     private void Awake()
     {
