@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioSource[] fxSources;
 
+    [SerializeField] float fixMusicTransition = 0.5f;
+
     public static AudioManager Instance;//simpleton
     public static bool bgON = true;//volume adjustable from settings
     public static bool sfxON = true;
@@ -39,8 +41,19 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        BGVolume = 0.5f;
-        SFXVolume = 0.5f;
+        var clip1 = GetBGMusic("BGIntro");
+        var clip2 = GetBGMusic("BGLoop");
+        float secs = clip1.length;
+        StartCoroutine(PlayBGAfterSeconds(secs, clip1, clip2));
+    }
+
+    IEnumerator PlayBGAfterSeconds(float seconds,AudioClip clip1, AudioClip clip2)
+    {
+        bgSource.clip = clip1;
+        bgSource.Play();
+        yield return new WaitForSeconds(seconds-fixMusicTransition);
+        bgSource.clip = clip2;
+        bgSource.Play();
     }
 
     public void MuteSound()
@@ -169,6 +182,27 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = new Sound();
         foreach (Sound sound in soundEffects)
+        {
+            if (sound.name == name)
+            {
+                s = sound;
+                break;
+            }
+        }
+        if (s != null)
+        {
+            return s.clip;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public AudioClip GetBGMusic(string name)
+    {
+        Sound s = new Sound();
+        foreach (Sound sound in bgMusic)
         {
             if (sound.name == name)
             {
