@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _alwaysPickable: 0
-  _alwaysWorkOnPressurePlates: 0
+  _alwaysWorkOnPressurePlates: 1
   _rb: {fileID: 2635208418989922107}
   _rootObject: {fileID: 1327290060352866055}
 --- !u!114 &7017333451001635880

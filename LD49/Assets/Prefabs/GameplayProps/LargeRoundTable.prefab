@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1405040599823281237, guid: 3b411e0f9168d714a905f0f73d71ac4a, type: 3}
+      propertyPath: _alwaysWorkOnPressurePlates
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160342914749033504, guid: 3b411e0f9168d714a905f0f73d71ac4a, type: 3}
       propertyPath: m_Name
       value: LargeRoundTable
