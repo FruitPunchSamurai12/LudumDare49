@@ -4,6 +4,7 @@ using System;
 public class Pickable:MonoBehaviour
 {
     [SerializeField] bool _alwaysPickable;
+    public bool _alwaysWorkOnPressurePlates;
     public bool IsPickable { get; private set; }
     [SerializeField] Rigidbody _rb;
     [SerializeField] Transform _rootObject;

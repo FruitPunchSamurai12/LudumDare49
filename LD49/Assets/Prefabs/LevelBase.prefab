@@ -1009,6 +1009,10 @@ PrefabInstance:
       value: 631
       objectReference: {fileID: 0}
     - target: {fileID: 889710763, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
+      propertyPath: _shrinkGunUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 889710763, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
       propertyPath: _primaryLineRenderer
       value: 
       objectReference: {fileID: 8877865564180740888}
@@ -1094,23 +1098,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4779330110534606161, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
       propertyPath: _depth
-      value: -2.5
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779330110534606161, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
+      propertyPath: _range
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4779330110534606161, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
       propertyPath: _rayOrigin
       value: 
       objectReference: {fileID: 8877865564180740889}
     - target: {fileID: 4779330110534606161, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
+      propertyPath: _thickness
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779330110534606161, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
       propertyPath: _carryPoint
       value: 
       objectReference: {fileID: 6887016798754513294}
     - target: {fileID: 4779330110534606161, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
       propertyPath: _throwForce
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4779330110534606161, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}
       propertyPath: _layerMask.m_Bits
-      value: 631
+      value: 2679
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46e3e158f51106547bcee2a1edbb8256, type: 3}

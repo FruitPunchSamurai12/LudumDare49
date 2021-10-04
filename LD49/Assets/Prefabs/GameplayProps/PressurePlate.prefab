@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4495726900363172173}
   m_Layer: 0
   m_Name: PressurePlate
-  m_TagString: Untagged
+  m_TagString: PressurePlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  secondsToCallEvents: 0.4
 --- !u!95 &4495726900363172173
 Animator:
   serializedVersion: 3

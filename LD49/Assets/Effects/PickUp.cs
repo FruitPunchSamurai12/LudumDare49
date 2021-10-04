@@ -35,6 +35,12 @@ public class PickUp : MonoBehaviour
             var hits = Physics.SphereCastAll(_rayOrigin.position, _thickness, direction, _range, _layerMask);
             foreach (var info in hits)
             {
+                var interactable = info.collider.GetComponent<Interactable>();
+                if(interactable!=null)
+                {
+                    interactable.Interact();
+                    return;
+                }
                 var pickable = info.collider.GetComponent<Pickable>();
                 if (pickable != null && pickable.IsPickable)
                 {
