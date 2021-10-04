@@ -12,7 +12,7 @@ public class PlaySoundOnColission:MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(_rb.velocity.magnitude>1)
+        if(_rb.velocity.magnitude>.5f)
         {
             int index = Random.Range(0, sounds.Length);
             AudioManager.Instance.PlaySoundEffect(sounds[index], transform.position);

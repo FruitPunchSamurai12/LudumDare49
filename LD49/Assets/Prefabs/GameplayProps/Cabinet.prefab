@@ -66,19 +66,6 @@ MonoBehaviour:
   sounds:
   - CrashWooden1
   - CrashWooden2
---- !u!65 &5162643021964094228
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7062982948829653169}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.021068316, y: 0.01806925, z: 0.021186862}
-  m_Center: {x: -0.000000007646378, y: 0.00019632891, z: 0.010620425}
 --- !u!114 &2917267554148078742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +100,19 @@ MonoBehaviour:
   _triggerBoxLayer:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!65 &2203896490379465239
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062982948829653169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42136624, y: 0.3598308, z: 0.42373928}
+  m_Center: {x: 0.000000004038908, y: 0.0047031706, z: 0.21240877}
 --- !u!1001 &3189184155468819597
 PrefabInstance:
   m_ObjectHideFlags: 0
