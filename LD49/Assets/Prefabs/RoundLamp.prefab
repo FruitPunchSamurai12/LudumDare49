@@ -26,6 +26,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shrinkAnimation: {fileID: 1448671149461312005}
+  _alwaysWorkOnPressurePlates: 0
+  _triggerBoxLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &9155033874845311628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shrinkAnimation: {fileID: 1448671149461312005}
+  _alwaysWorkOnPressurePlates: 0
+  _triggerBoxLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &6247793808295335225
 MonoBehaviour:
   m_ObjectHideFlags: 0

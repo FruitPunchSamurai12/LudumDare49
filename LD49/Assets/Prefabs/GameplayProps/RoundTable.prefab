@@ -109,6 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shrinkAnimation: {fileID: 2063823701130974069}
   _alwaysWorkOnPressurePlates: 0
+  _triggerBoxLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1001 &2063823702126383615
 PrefabInstance:
   m_ObjectHideFlags: 0

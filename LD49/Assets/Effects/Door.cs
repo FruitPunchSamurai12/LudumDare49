@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     Animator _animator;
     [SerializeField] bool _startOpen;
     [SerializeField] float _waitForSecondsToPlayCloseSound = 0.3f;
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         if (_startOpen)

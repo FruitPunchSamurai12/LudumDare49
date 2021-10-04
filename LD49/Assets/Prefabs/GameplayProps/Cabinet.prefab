@@ -107,8 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4082472d2724fe4aae42539e8088bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shrinkAnimation: {fileID: 0}
+  _shrinkAnimation: {fileID: 3189184156620959239}
   _alwaysWorkOnPressurePlates: 0
+  _triggerBoxLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1001 &3189184155468819597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,6 +182,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7172756224838432140, guid: 804988637563e544887e594ff1ce8536, type: 3}
   m_PrefabInstance: {fileID: 3189184155468819597}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3189184156620959239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+  m_PrefabInstance: {fileID: 3189184155468819597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9183c973c3cca4c853515b1cecc61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5864624624151777262
 PrefabInstance:
   m_ObjectHideFlags: 0

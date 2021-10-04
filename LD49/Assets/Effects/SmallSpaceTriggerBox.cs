@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class SmallSpaceTriggerBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    var shrink = other.GetComponentInChildren<ShrinkAnimation>();
+    //    if (shrink != null)
+    //    {
+    //        shrink.InSmallSpace();
+    //    }
+    //}
+    //
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    var shrink = other.GetComponentInChildren<ShrinkAnimation>();
+    //    if(shrink!=null)
+    //    {
+    //        shrink.InSmallSpace();
+    //    }
+    //}
+    //
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    var shrink = other.GetComponentInChildren<ShrinkAnimation>();
+    //    if (shrink != null)
+    //    {
+    //        shrink.LeftSmallSpace();
+    //    }
+    //}
 }

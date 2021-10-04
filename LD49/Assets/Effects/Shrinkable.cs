@@ -10,6 +10,8 @@ public class Shrinkable : MonoBehaviour
     Pickable _pickable;
     bool _isSmall = false;
     [SerializeField] bool _alwaysWorkOnPressurePlates = false;
+    [SerializeField] LayerMask _triggerBoxLayer;
+
 
 
     private void Awake()
@@ -17,6 +19,28 @@ public class Shrinkable : MonoBehaviour
         _pickable = GetComponent<Pickable>();
         _shrinkAnimation.onShrinkComplete += HandleShrinkComplete;
         _shrinkAnimation.onShrinkRevert += HandleShrinkRevert;
+    }
+
+    private void FixedUpdate()
+    {
+        if(_isSmall)
+        {
+            var cols = Physics.OverlapSphere(transform.position, 1,_triggerBoxLayer,QueryTriggerInteraction.Collide);
+            if (cols.Length > 0)
+                InSmallSpace();
+            else
+                InBigSpace();
+        }
+    }
+
+    public void InSmallSpace()
+    {
+        _shrinkAnimation.InSmallSpace();
+    }
+
+    public void InBigSpace()
+    {
+        _shrinkAnimation.LeftSmallSpace();
     }
 
     public void Shrink(Vector3 hitPoint)
