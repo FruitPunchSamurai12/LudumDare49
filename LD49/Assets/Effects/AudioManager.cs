@@ -31,6 +31,8 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            SFXVolume = 0.5f;
+            BGVolume = 0.5f;
             DontDestroyOnLoad(gameObject);
         }
         else
