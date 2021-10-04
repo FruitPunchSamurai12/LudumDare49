@@ -39,12 +39,14 @@ public class ShrinkGun : MonoBehaviour
         }
         if(Firing)
         {
-            Vector3 target = _cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -_depth));
-            Vector3 direction = (target - _rayObj.transform.position).normalized;
-            if(Physics.Raycast(_rayObj.transform.position,direction,out RaycastHit info, _range,_layerMask))
+            Ray screenCenterRay = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
+            Vector3 infinityTarget = _cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -_depth));
+            Vector3 infinityDirection = (infinityTarget - _rayObj.transform.position).normalized;
+            if(Physics.Raycast(screenCenterRay, out RaycastHit info, _range,_layerMask))
             {
                 _primaryLineRenderer.SetPosition(0, Vector3.zero);
                 _primaryLineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(info.point));
+                Vector3 direction = info.point - _rayObj.transform.position;
                 var shrinkable = info.collider.GetComponent<Shrinkable>();
                 if (info.collider.CompareTag("Mirror"))
                 {
@@ -75,7 +77,7 @@ public class ShrinkGun : MonoBehaviour
             else
             {
                 _primaryLineRenderer.SetPosition(0, Vector3.zero);
-                _primaryLineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(_rayObj.transform.position +direction *_range));
+                _primaryLineRenderer.SetPosition(1, _rayObj.transform.InverseTransformPoint(_rayObj.transform.position +infinityDirection *_range));
                 _secondaryLineRenderer.enabled = false;
             }
             
