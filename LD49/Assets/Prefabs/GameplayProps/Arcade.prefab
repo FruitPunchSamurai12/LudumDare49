@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shrinkAnimation: {fileID: 6737379274422015075}
+  _alwaysWorkOnPressurePlates: 1
 --- !u!114 &3224425725198983499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _alwaysPickable: 0
-  _alwaysWorkOnPressurePlates: 0
+  _alwaysWorkOnPressurePlates: 1
   _rb: {fileID: 26688280234952026}
   _rootObject: {fileID: 7965404082982193768}
 --- !u!1001 &3864874630190287333

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1876314734511374218}
   - component: {fileID: 8082994422468816380}
   - component: {fileID: 4820486433781363942}
-  - component: {fileID: 1052821385051753242}
+  - component: {fileID: 1703638060241037129}
   m_Layer: 0
   m_Name: SmallMirror (1)
-  m_TagString: Untagged
+  m_TagString: Mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1052821385051753242
-MeshCollider:
+--- !u!65 &1703638060241037129
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,10 +92,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000008, y: 0.0000021422966, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0.0000009536743}
 --- !u!1 &2848435821422650431
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,10 +106,10 @@ GameObject:
   - component: {fileID: 2848435821422650403}
   - component: {fileID: 2848435821422650400}
   - component: {fileID: 2848435821422650401}
-  - component: {fileID: 2848435821422650430}
+  - component: {fileID: 8222491185999567588}
   m_Layer: 0
   m_Name: SmallMirror
-  m_TagString: Untagged
+  m_TagString: Mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,8 +177,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2848435821422650430
-MeshCollider:
+--- !u!65 &8222491185999567588
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -188,10 +187,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000008, y: 0.0000021422966, z: 10.000002}
+  m_Center: {x: 0.000002861023, y: 0, z: 0.00000023841858}
 --- !u!1 &2848435822210507265
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,9 +261,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 291449352476253501, guid: 2a25470e3b50f0045adccb72479f05d2, type: 3}
+      propertyPath: m_Size.z
+      value: 1.9752424
+      objectReference: {fileID: 0}
+    - target: {fileID: 291449352476253501, guid: 2a25470e3b50f0045adccb72479f05d2, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000092388586
+      objectReference: {fileID: 0}
+    - target: {fileID: 291449352476253501, guid: 2a25470e3b50f0045adccb72479f05d2, type: 3}
+      propertyPath: m_Center.y
+      value: 0.9960875
+      objectReference: {fileID: 0}
+    - target: {fileID: 291449352476253501, guid: 2a25470e3b50f0045adccb72479f05d2, type: 3}
+      propertyPath: m_Center.z
+      value: -0.012376903
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604965443941040007, guid: 2a25470e3b50f0045adccb72479f05d2, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7147505511161554105, guid: 2a25470e3b50f0045adccb72479f05d2, type: 3}
       propertyPath: m_Name
-      value: Closet
+      value: MirrorCloset
       objectReference: {fileID: 0}
     - target: {fileID: 7147505511161554106, guid: 2a25470e3b50f0045adccb72479f05d2, type: 3}
       propertyPath: m_RootOrder

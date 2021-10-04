@@ -32,8 +32,8 @@ public class Player : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _characterGrounding = GetComponent<CharacterGrounding>();
         _stepsAudioSource = GetComponent<AudioSource>();
-        _shrinkAnimation.onShrinkComplete += HandlePlayerShrink;
-        _shrinkAnimation.onShrinkRevert += HandlePlayerUnshrink;
+        //_shrinkAnimation.onShrinkComplete += HandlePlayerShrink;
+        //_shrinkAnimation.onShrinkRevert += HandlePlayerUnshrink;
     }
 
     // Update is called once per frame

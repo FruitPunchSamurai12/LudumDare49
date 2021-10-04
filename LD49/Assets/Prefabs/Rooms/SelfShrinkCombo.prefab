@@ -252,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelfShrinkTutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 1045350933232887339, guid: 51fb75bb89625a241a96bf918844271a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3235775716684920981, guid: 51fb75bb89625a241a96bf918844271a, type: 3}
       propertyPath: m_LocalScale.z
       value: 11.444894
