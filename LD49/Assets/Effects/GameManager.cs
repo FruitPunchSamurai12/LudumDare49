@@ -56,14 +56,16 @@ public class GameManager: MonoBehaviour
         _paused = true;
         _player.enabled = false;
         _rotator.enabled = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
     public void Resume()
     {
         if (_menu != null)
             _menu.SetCanvasGroupAlpha(0,false);
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         _paused = false;
         _player.enabled = true;
         _rotator.enabled = true;
