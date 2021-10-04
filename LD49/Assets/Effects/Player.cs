@@ -41,9 +41,7 @@ public class Player : MonoBehaviour
         _shrinkAnimation.onShrinkComplete += HandlePlayerShrink;
         _shrinkAnimation.onShrinkRevert += HandlePlayerUnshrink;
         _speed = _defaultSpeed;
-        _jumpPower = _defaultJumpPower;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        _jumpPower = _defaultJumpPower;        
     }
 
 
