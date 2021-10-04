@@ -41,17 +41,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Face
-    second: {fileID: 2100000, guid: 4b4ca8921badabe45954e7a001bbe38a, type: 2}
+    second: {fileID: 2100000, guid: 7aa354694342ef04b856c852b8bd1303, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Helmet
-    second: {fileID: 2100000, guid: 9613c6e576e5f3c43b9d3b55579049a9, type: 2}
+    second: {fileID: 2100000, guid: dcb3506cdec06384d932b21055527b03, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: SpaceSuit
-    second: {fileID: 2100000, guid: 612541285ffeb604588d7671e9987e59, type: 2}
+    second: {fileID: 2100000, guid: 697ed44d53b27bf43a05d10eaa683c3a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -58,6 +58,8 @@ public class ShrinkAnimation : MonoBehaviour {
     [Header("Renderers to adapt")]
     public Renderer outsideRenderer;
     public Renderer insideRenderer;
+    public Transform transformRoot;
+    public Renderer[] extraInsideRenderers;
 
     // -- Animation state --
     private float charge = 0f;
@@ -88,37 +90,50 @@ public class ShrinkAnimation : MonoBehaviour {
     public event Action onShrinkRevert;
 
     /* Set the default values in the shaders */
-    private void InitShaders() {
+    private void InitShader(Renderer r) {
         // That way we can have multiple materials where we don't have to worry whether these are configured right...
-        insideRenderer.material.SetFloat("_AmountDisplace", AmountDisplace);
-        insideRenderer.material.SetFloat("_ExtraGlitchScaleFactor", ExtraGlitchScaleFactor);
-        insideRenderer.material.SetFloat("_GlitchScaleImpactFactor", GlitchScaleImpactFactor);
-        insideRenderer.material.SetVector("_ChargePoint", ChargePoint);
-        insideRenderer.material.SetVector("_ChargePointSmooth", ChargePointSmooth);
-        insideRenderer.material.SetFloat("_ChargeContributionStart", ChargeContributionStart);
-        insideRenderer.material.SetFloat("_ChargeContributionEnd", ChargeContributionEnd);
-        insideRenderer.material.SetFloat("_ChargeTransitionToSmoothHitPoint", ChargeTransitionToSmoothHitPoint);
-        insideRenderer.material.SetFloat("_ChargeWaveScale", ChargeWaveScale);
-        insideRenderer.material.SetFloat("_ChargeWaveSpeed", ChargeWaveSpeed);
-        insideRenderer.material.SetFloat("_ChargeWaveHeight", ChargeWaveHeight);
-        insideRenderer.material.SetFloat("_ChargeTransitionWaveSpeed", ChargeTransitionWaveSpeed);
-        insideRenderer.material.SetFloat("_ShrinkEndShift", ShrinkEndShift);
-        insideRenderer.material.SetFloat("_ChargeEffectBuildupSpeed", ChargeEffectBuildupSpeed);
-        insideRenderer.material.SetFloat("_ExtraHeightHitPointFalloffShape", ExtraHeightHitPointFalloffShape);
-        insideRenderer.material.SetFloat("_ExtraHeightHitPoint", ExtraHeightHitPoint);
+        r.material.SetFloat("_AmountDisplace", AmountDisplace);
+        r.material.SetFloat("_ExtraGlitchScaleFactor", ExtraGlitchScaleFactor);
+        r.material.SetFloat("_GlitchScaleImpactFactor", GlitchScaleImpactFactor);
+        r.material.SetVector("_ChargePoint", ChargePoint);
+        r.material.SetVector("_ChargePointSmooth", ChargePointSmooth);
+        r.material.SetFloat("_ChargeContributionStart", ChargeContributionStart);
+        r.material.SetFloat("_ChargeContributionEnd", ChargeContributionEnd);
+        r.material.SetFloat("_ChargeTransitionToSmoothHitPoint", ChargeTransitionToSmoothHitPoint);
+        r.material.SetFloat("_ChargeWaveScale", ChargeWaveScale);
+        r.material.SetFloat("_ChargeWaveSpeed", ChargeWaveSpeed);
+        r.material.SetFloat("_ChargeWaveHeight", ChargeWaveHeight);
+        r.material.SetFloat("_ChargeTransitionWaveSpeed", ChargeTransitionWaveSpeed);
+        r.material.SetFloat("_ShrinkEndShift", ShrinkEndShift);
+        r.material.SetFloat("_ChargeEffectBuildupSpeed", ChargeEffectBuildupSpeed);
+        r.material.SetFloat("_ExtraHeightHitPointFalloffShape", ExtraHeightHitPointFalloffShape);
+        r.material.SetFloat("_ExtraHeightHitPoint", ExtraHeightHitPoint);
     }
+
+    private Transform TransformRoot { get {
+        if(transformRoot != null) {
+            return transformRoot;
+        } else {
+            return insideRenderer.transform;
+        }
+    }}
 
     private void Start() {
         // Reset the shaders
-        InitShaders();
+        InitShader(insideRenderer);
+        if(extraInsideRenderers != null) {
+            foreach(Renderer r in extraInsideRenderers) {
+                InitShader(r);
+            }
+        }
 
         // Init
         lastTimeChargePointContribution = Time.time - 100;
         chargeContributionStartTime = Time.time - 100;
-        initialRotation = insideRenderer.transform.localRotation;
-        lastLossyScale = insideRenderer.transform.lossyScale;
+        initialRotation = TransformRoot.localRotation;
+        lastLossyScale = TransformRoot.lossyScale;
 
-        initialScale = insideRenderer.transform.localScale;
+        initialScale = TransformRoot.localScale;
 
         outsideScaleFactor = 1f;
     }
@@ -126,14 +141,14 @@ public class ShrinkAnimation : MonoBehaviour {
     private void SwitchToSmall() {
         // Throw an event or something? Do this elsewhere?
         currentlyLarge = false;
-        insideRenderer.transform.localScale = initialScale * shrinkScaleFactor;
+        TransformRoot.localScale = initialScale * shrinkScaleFactor;
         onShrinkComplete?.Invoke();
     }
 
     private void SwitchToLarge() {
         // Throw an event or something? Do this elsewhere?
         currentlyLarge = true;
-        insideRenderer.transform.localScale = initialScale;
+        TransformRoot.localScale = initialScale;
         onShrinkRevert?.Invoke();
     }
 
@@ -218,21 +233,32 @@ public class ShrinkAnimation : MonoBehaviour {
         }
 
         outsideScaleFactor = Mathf.SmoothDamp(outsideScaleFactor, targetOutsideScaleFactor, ref outsideScaleFactorSpeed, outsideScaleFactorSmoothTime);
-        outsideRenderer.transform.localScale = initialScale * outsideScaleFactor;
+        if(outsideRenderer != null) {
+            outsideRenderer.transform.localScale = initialScale * outsideScaleFactor;
+        }
+    }
+
+    private void ApplyChargePointAnimationParameters(Renderer r) {
+        r.material.SetVector("_ChargePoint", chargeHitPosition);
+        r.material.SetVector("_ChargePointSmooth", smoothChargePoint);
+        r.material.SetFloat("_ChargeContributionStart", -(chargeContributionStartTime - Time.time));
+        r.material.SetFloat("_ChargeContributionEnd", -(lastTimeChargePointContribution - Time.time));
+
+        // Size of the charge effect depends on whether we are large or small
+        r.material.SetFloat("_ChargeWaveScale", ChargeWaveScale * (currentlyLarge?1:chargeWaveScaleSmallFactor));
+        r.material.SetFloat("_ChargeWaveHeight", ChargeWaveHeight * (currentlyLarge?1:chargeWaveHeightSmallFactor));
+        r.material.SetFloat("_ExtraHeightHitPoint", ExtraHeightHitPoint * (currentlyLarge?1:chargeWaveHeightSmallFactor));
     }
 
     private void AnimateChargePoint() {
         smoothChargePoint = Vector3.Lerp(smoothChargePoint, chargeHitPosition, Mathf.Clamp01((Time.time-lastTimeChargePointContribution)/chargeHitPositionTimeout + 0.1f));
 
-        insideRenderer.material.SetVector("_ChargePoint", chargeHitPosition);
-        insideRenderer.material.SetVector("_ChargePointSmooth", smoothChargePoint);
-        insideRenderer.material.SetFloat("_ChargeContributionStart", -(chargeContributionStartTime - Time.time));
-        insideRenderer.material.SetFloat("_ChargeContributionEnd", -(lastTimeChargePointContribution - Time.time));
-
-        // Size of the charge effect depends on whether we are large or small
-        insideRenderer.material.SetFloat("_ChargeWaveScale", ChargeWaveScale * (currentlyLarge?1:chargeWaveScaleSmallFactor));
-        insideRenderer.material.SetFloat("_ChargeWaveHeight", ChargeWaveHeight * (currentlyLarge?1:chargeWaveHeightSmallFactor));
-        insideRenderer.material.SetFloat("_ExtraHeightHitPoint", ExtraHeightHitPoint * (currentlyLarge?1:chargeWaveHeightSmallFactor));
+        ApplyChargePointAnimationParameters(insideRenderer);
+        if(extraInsideRenderers != null) {
+            foreach(Renderer r in extraInsideRenderers) {
+                ApplyChargePointAnimationParameters(r);
+            }
+        }
     }
 
     private void GlitchRotation() {
@@ -248,11 +274,11 @@ public class ShrinkAnimation : MonoBehaviour {
         // Update rotation
         // How much should we apply them?
         Quaternion percentGlitchedRotation = Quaternion.Slerp(Quaternion.identity, lastRotation, animatedRandomRotation);
-        insideRenderer.transform.localRotation = percentGlitchedRotation * initialRotation;
+        TransformRoot.localRotation = percentGlitchedRotation * initialRotation;
     }
 
     private void ShrinkGlitch() {
-        Vector3 currentScale = insideRenderer.transform.lossyScale;
+        Vector3 currentScale = TransformRoot.lossyScale;
 
         // Interpolate the scale!
         currentScaleVelocity = currentScaleVelocity + (currentScale - lastLossyScale)*scaleForceFactor;
@@ -260,6 +286,12 @@ public class ShrinkAnimation : MonoBehaviour {
 
         // Tell the shader to glitch the scale transition
         lastLossyScale += currentScaleVelocity;
-        insideRenderer.material.SetFloat("_ExtraGlitchScaleFactor", lastLossyScale.x/currentScale.x*extraScaleFactor-1.0f);
+        float shrinkGlitchFactor = lastLossyScale.x/currentScale.x*extraScaleFactor-1.0f;
+        insideRenderer.material.SetFloat("_ExtraGlitchScaleFactor", shrinkGlitchFactor);
+        if(extraInsideRenderers != null) {
+            foreach(Renderer r in extraInsideRenderers) {
+                r.material.SetFloat("_ExtraGlitchScaleFactor", shrinkGlitchFactor);
+            }
+        }
     }
 }

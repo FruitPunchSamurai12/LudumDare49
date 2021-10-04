@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterDisplay: {fileID: 3634031881431725523}
-  _shrinkAnimation: {fileID: 0}
+  _shrinkAnimation: {fileID: 4637765703146329557}
   _defaultHeight: 1
   _defaultRadius: 0.25
   _defaultCenterY: 0.5
@@ -960,9 +960,29 @@ LineRenderer:
   m_CorrespondingSourceObject: {fileID: 1802150136544625046, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
   m_PrefabInstance: {fileID: 744443107271019406}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7315394757306848683 stripped
+--- !u!4 &1393385864033896985 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8057304540261064229, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1802150136544625047, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
+  m_PrefabInstance: {fileID: 744443107271019406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1393385864033896987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1802150136544625045, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
+  m_PrefabInstance: {fileID: 744443107271019406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7820805089983722662 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7412326599634943784, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
+  m_PrefabInstance: {fileID: 744443107271019406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &197526540509754022 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 642055796102478120, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
+  m_PrefabInstance: {fileID: 744443107271019406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1711193627279917865 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2156004341067942055, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
   m_PrefabInstance: {fileID: 744443107271019406}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3634031881431725523 stripped
@@ -976,19 +996,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5095bd835f92f4f8a20fbb31b920b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7315394757306848683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8057304540261064229, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
+  m_PrefabInstance: {fileID: 744443107271019406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &8296826399800155839 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8750763083326772529, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
-  m_PrefabInstance: {fileID: 744443107271019406}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1393385864033896987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1802150136544625045, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
-  m_PrefabInstance: {fileID: 744443107271019406}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1393385864033896985 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1802150136544625047, guid: 0b47f6501831a594c886fb46d03f6948, type: 3}
   m_PrefabInstance: {fileID: 744443107271019406}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4637765702134077279
@@ -999,9 +1014,49 @@ PrefabInstance:
     m_TransformParent: {fileID: 744443107659219414}
     m_Modifications:
     - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: transformRoot
+      value: 
+      objectReference: {fileID: 7315394757306848683}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
       propertyPath: insideRenderer
       value: 
       objectReference: {fileID: 8296826399800155839}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: scaleForceDamp
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: scaleForceFactor
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: ExtraHeightHitPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: amountIndicationScale
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: amountIndicationScaleWhenSmall
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: extraInsideRenderers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: extraInsideRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 7820805089983722662}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: extraInsideRenderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1711193627279917865}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: extraInsideRenderers.Array.data[2]
+      value: 
+      objectReference: {fileID: 197526540509754022}
     - target: {fileID: 4065219139064105817, guid: 804988637563e544887e594ff1ce8536, type: 3}
       propertyPath: m_Name
       value: ShrinkEffectController
@@ -1057,3 +1112,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7172756224838432140, guid: 804988637563e544887e594ff1ce8536, type: 3}
   m_PrefabInstance: {fileID: 4637765702134077279}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4637765703146329557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+  m_PrefabInstance: {fileID: 4637765702134077279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9183c973c3cca4c853515b1cecc61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
