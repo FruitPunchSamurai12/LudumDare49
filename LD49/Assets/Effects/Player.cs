@@ -75,4 +75,5 @@ public class Player : MonoBehaviour
         AudioManager.Instance.PlaySoundEffect("Jump", transform.position);
     }
 
+
 }
