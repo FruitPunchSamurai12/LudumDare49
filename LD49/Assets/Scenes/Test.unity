@@ -565,13 +565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4082472d2724fe4aae42539e8088bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _expandGraphics: {fileID: 736448730}
-  _parentPivot: {fileID: 312559352}
-  _revertingThreshold: 3
-  _revertingDuration: 2
-  _minimumScale: {x: 0.3, y: 0.3, z: 0.3}
-  _maxScaleToBePickable: {x: 0.4, y: 0.4, z: 0.4}
   _shrinkAnimation: {fileID: 1427177360}
+  _alwaysWorkOnPressurePlates: 0
 --- !u!114 &762493359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,13 +967,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748172697}
-  m_LocalRotation: {x: -0, y: -0.16728939, z: -0, w: 0.98590785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.116, y: 0.974, z: -0.779}
   m_LocalScale: {x: 1, y: 2, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: -19.261, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2873836610121603974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1187,6 +1182,10 @@ PrefabInstance:
     - target: {fileID: 7076850126184313047, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521801643997206955, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 759
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}

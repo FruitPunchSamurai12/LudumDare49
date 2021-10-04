@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBase
       objectReference: {fileID: 0}
+    - target: {fileID: 7076850126184313050, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 3649
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 609c3426fc223644ebb22a8e2db33496, type: 3}
 --- !u!1001 &4276710647059125460
