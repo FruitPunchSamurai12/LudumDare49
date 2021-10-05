@@ -7,17 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Level_Glass
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Name: Object_BasicOrangeLetters
+  m_Shader: {fileID: -6465566751694194690, guid: 53ba2a0cd8bdf974fb4f523d0d9b519c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
-  disabledShaderPasses:
-  - SHADOWCASTER
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -78,7 +76,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Highlight: 0
+    - Vector1_3c02a8aae7f346f8bee1710774ecf173: 0.3
     - Vector1_858cd919643146a7be63b15d0a0e3615: 1
+    - Vector1_aedd58810c8040b687e253af6da7ff8c: -0.9
     - _AlphaClip: 0
     - _AmountDisplace: 0
     - _Blend: 0
@@ -97,7 +98,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _ExtraGlitchScaleFactor: 0
     - _ExtraHeightHitPoint: 2
@@ -106,7 +107,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metallic: 0.343
+    - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -115,14 +116,15 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
-    - _Surface: 1
+    - _SrcBlend: 1
+    - _Surface: 0
     - _WorkflowMode: 1
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
+    - Color_b7952eb81b77466b88819534a243b75e: {r: 1, g: 0.88129854, b: 0.6745283, a: 0}
     - Color_ff340f77e2464a14b963ee8aa8ac2d44: {r: 1, g: 0.63569504, b: 0, a: 1}
     - Vector2_219ddd2aa5ea4450b233d1fc6972a976: {r: 2, g: 2, b: 0, a: 0}
-    - _BaseColor: {r: 0.85490197, g: 0.9360337, b: 1, a: 0.20784314}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _ChargePoint: {r: 0, g: 0, b: -0.5, a: 0}
     - _ChargePointSmooth: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

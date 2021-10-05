@@ -46,6 +46,7 @@ MonoBehaviour:
   _alwaysWorkOnPressurePlates: 0
   _rb: {fileID: 2655988547068472338}
   _rootObject: {fileID: 4768655895098667907}
+  rendererForHighlight: {fileID: 0}
 --- !u!65 &3240593675186971609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -92,6 +93,7 @@ MonoBehaviour:
   _alwaysWorkOnPressurePlates: 0
   _rb: {fileID: 2655988547068472338}
   _rootObject: {fileID: 4768655895098667907}
+  rendererForHighlight: {fileID: 0}
 --- !u!1 &8250473008143935918
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +247,10 @@ PrefabInstance:
       propertyPath: outsideRenderer
       value: 
       objectReference: {fileID: 3401215468649057068}
+    - target: {fileID: 1287111306, guid: 804988637563e544887e594ff1ce8536, type: 3}
+      propertyPath: ExtraHeightHitPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4065219139064105817, guid: 804988637563e544887e594ff1ce8536, type: 3}
       propertyPath: m_Name
       value: ShrinkEffectController

@@ -12,7 +12,8 @@ public class Shrinkable : MonoBehaviour
     [SerializeField] bool _alwaysWorkOnPressurePlates = false;
     [SerializeField] LayerMask _triggerBoxLayer;
 
-
+    public UnityEngine.Events.UnityEvent onShrink;
+    public UnityEngine.Events.UnityEvent onUnShrink;
 
     private void Awake()
     {
@@ -58,6 +59,8 @@ public class Shrinkable : MonoBehaviour
         _isSmall = true;
         if (_pickable != null)
             _pickable.SmallEnoughToPick();
+        
+        onShrink.Invoke();
     }
 
     void HandleShrinkRevert()
@@ -65,6 +68,8 @@ public class Shrinkable : MonoBehaviour
         _isSmall = false;
         if (_pickable != null)
             _pickable.TooBigToCarry();
+        
+        onUnShrink.Invoke();
     }
 
     public bool ApplyPressure()
